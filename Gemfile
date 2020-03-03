@@ -11,6 +11,7 @@ gem 'bootstrap-sass'
 gem 'jquery-rails'
 gem 'bootstrap_form', '~> 2.7'
 gem 'will_paginate'
+gem 'devise'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 # Use sqlite3 as the database for Active Record
 # Use Puma as the app server
