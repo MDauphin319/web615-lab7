@@ -12,11 +12,16 @@
 
 class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!
+
   # GET /articles
   # GET /articles.json
   def index
     @articles = Article.paginate(:page => params[:page], :per_page => params[:per_page] ||= 30).order(created_at: :desc)
+    respond_to do |format|
+      format.html {@articles}
+      format.json {render json: @articles}
+      format.xml {render xml: @articles}
+    end
   end
 
   # GET /articles/1
@@ -90,7 +95,7 @@ class ArticlesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def article_params
-      params.require(:article).permit(:title, :content, :category)
+      params.require(:article).permit(:title, :content, :category, :user_id)
       # Students, make sure to add the user_id parameter as a symbol here ^^^^^^
     end
 end

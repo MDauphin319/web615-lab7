@@ -4,6 +4,7 @@ class CreateComments < ActiveRecord::Migration[5.1]
       t.text :message
       t.boolean :visible, default: false
       t.integer :article_id
+      t.integer :user_id, foreign_key: true
 
       t.timestamps
     end
