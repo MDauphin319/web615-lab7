@@ -1,8 +1,8 @@
-@user = User.new
+user = User.new
 user.email = 'matthew.dauphin01@stclairconnect.ca'
 user.encrypted_password = 'password'
 
-for i in 1..100
+for i in 1..20
   @article = Article.new
   @article.title = "Will #{Faker::Company.name} really #{Faker::Company.bs}?"
   paragraph_1 = Faker::Lorem.paragraphs.join(' ')
